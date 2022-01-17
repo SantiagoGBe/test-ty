@@ -17,10 +17,10 @@ class UserDB {
         conflictAlgorithm: ConflictAlgorithm.abort,
       );
 
-      final users = await db.query('user',
-          columns: ['id'], where: 'id = ?', whereArgs: [id]);
+      final users = await db.query('user', where: 'id = ?', whereArgs: [id]);
 
       final auxUser = users[0];
+
       result = User(
           id: auxUser['id'] as int,
           email: auxUser['email'] as String,
@@ -37,7 +37,6 @@ class UserDB {
 
     final users =
         await db.query('user', where: 'email = ?', whereArgs: [user.email]);
-
     if (users.isNotEmpty) {
       final auxUser = users[0];
       if (user.password == users[0]['password']) {

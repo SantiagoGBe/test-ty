@@ -8,7 +8,7 @@ import 'package:test_tyba/app/routes/app_pages.dart';
 class InitialController extends GetxController {
   late final GetStorage box;
   late CredentialAPI api;
-  //TODO: Implement InitialController
+
   final form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
@@ -44,8 +44,8 @@ class InitialController extends GetxController {
       Get.defaultDialog(
           title: 'Error',
           middleText: state == 0
-              ? 'El usuario ya existe'
-              : 'El usuario no existe o los datos estan incorrectos');
+              ? 'El usuario no existe o los datos estan incorrectos'
+              : 'El usuario ya existe');
     }
   }
 

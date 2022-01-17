@@ -17,7 +17,7 @@ class InitialView extends GetView<InitialController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Obx(() => Text(
-                    controller.state == 0 ? 'Registro' : 'Login',
+                    controller.state == 0 ? 'Login' : 'Registro',
                     style: TextStyle(fontSize: 32),
                   )),
               SizedBox(
@@ -50,19 +50,19 @@ class InitialView extends GetView<InitialController> {
               ),
               Obx(() => TextButton(
                     child:
-                        Text(controller.state == 0 ? 'Registrarse' : 'Login'),
+                        Text(controller.state == 0 ? 'Login' : 'Registrarse'),
                     onPressed: () {
                       controller.form.valid
                           ? controller.state == 0
-                              ? controller.register()
-                              : controller.login()
+                              ? controller.login()
+                              : controller.register()
                           : () {};
                     },
                   )),
               Obx(() => TextButton(
                     child: Text(controller.state == 0
-                        ? 'Ya estas registrado?'
-                        : 'Deseas registrarte?'),
+                        ? 'Deseas registrarte?'
+                        : 'Ya estas registrado?'),
                     onPressed: () {
                       controller.state == 0
                           ? controller.state = 1
